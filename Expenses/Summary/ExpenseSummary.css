@@ -1,0 +1,15 @@
+table, th, td {
+    border: 2px solid black;
+}
+
+.Over {
+    background-color: red;
+}
+
+.Under {
+    background-color: green;
+}
+
+.Even {
+    background-color: none;
+}

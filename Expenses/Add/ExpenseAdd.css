@@ -1,0 +1,42 @@
+.Error {
+    border: 1px solid red;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    height: 1em;
+    width: 1em;
+}
+
+table, th, td {
+    border: 2px solid black;
+}
+
+table {
+    width: 75%;
+}
+
+td:nth-child(5) {
+    border: none;
+}
+
+.submitsection {
+    height: 50em;
+    width: 100%;
+    text-align: center;
+}
+
+#sub {
+    margin-top: 5em;
+}
+
+input[type="text"] {
+    width: 85%;
+}
+
+.inline {
+    display: inline;
+}
