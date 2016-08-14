@@ -11,7 +11,7 @@
         {
             $b = $_GET['bucket'];
             
-            $html = "<h1>".$b." Bucket Summary</h1><table class=\"table\"><thead><tr><th>Average Purchase</th><th>Max Purchase</th></tr></thead><tbody>";
+            $html = "<h1>".$b." Bucket Summary</h1><table class=\"table\"><thead><tr><th>Average Purchase</th><th>Standard Deviation</th><th>Max Purchase</th><th># of Purchases</th></tr></thead><tbody>";
             
             //query sql for expense data given the date
             $username = "root";
@@ -19,13 +19,13 @@
             $db = new PDO("mysql:host=localhost;dbname=SandBox", $username, $password);
 
 
-            $stmt = $db->query('SELECT AVG(Amount) as average,MAX(Amount) as max FROM Expense WHERE Bucket=\''.$b.'\';');
+            $stmt = $db->query('SELECT AVG(Amount) as average,STDDEV(Amount) as stddev,MAX(Amount) as max,COUNT(Amount) as count FROM Expense WHERE Bucket=\''.$b.'\';');
 
             //add each row returned to the html table
             $count = 0;
             while ($rows = $stmt->fetch())
             {   
-                $newhtml = "<tr><td>$".$rows['average']."</td><td>$".$rows['max']."</tr>";
+                $newhtml = "<tr><td>$".$rows['average']."</td><td>$".$rows['stddev']."</td><td>$".$rows['max']."</td><td>".$rows['count']."</td></tr>";
 
                 $html = $html.$newhtml;
                 
